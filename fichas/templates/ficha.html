@@ -1,6 +1,13 @@
 <html>
   <body>
     <h1>Hola, {{ request.user.username }}. Esta es la ficha de {{ ficha.nombre }}</h1>
+    <h2>Validada: 
+      {% if ficha.validado %}
+      <span class="valid">Sí</span>
+      {% else %}
+      <span class="notvalid">No</span>
+      {% endif %}
+    </h2>
     <h2>Estadísticas</h2>
     <ul>
       <li><strong>Fuerza: </strong>{{ ficha.fuerza|add:ficha.raza.fuerza }}</li>
@@ -29,6 +36,10 @@
     {{ ficha.historia }}
     <br />
     <br />
+    {% if ficha.validado %}
     <a href="{% url 'fichas:experiencia' ficha.id %}">Gastar experiencia</a>
+    <br />
+    {% endif %}
+    <a href="{% url 'fichas:index' %}">Volver a listado de fichas</a>
   </body>
 </html>
