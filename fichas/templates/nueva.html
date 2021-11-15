@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <h1>Nueva ficha para {{ request.user.username }}.</h1>
+    <form action="{% url 'fichas:new' %}" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Enviar">
+    </form>
+  </body>
+</html>

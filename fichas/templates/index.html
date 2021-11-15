@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <h1>Hola, {{ request.user.username }}. Éstas son tus fichas.</h1>
+    <ul>
+      {% if fichas %}
+        {% for ficha in fichas %}
+        <li>{{ ficha.nombre }} <a href="{% url 'fichas:ficha' ficha.id %}">Ver</a></li>
+        {% endfor %}
+      {% else %}
+        <li>No hay fichas</li>
+      {% endif %}
+    </ul>
+    <h2><a href="{% url 'fichas:new' %}">Crear una nueva ficha</a></h2>
+  </body>
+</html>
