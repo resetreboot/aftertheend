@@ -1,5 +1,6 @@
-<html>
-  <body>
+{% extends "base.html" %}
+{% block title %}After the End: Ficha de {{ ficha.nombre }}{% endblock %}
+{% block content %}
     <h1>Hola, {{ request.user.username }}. Esta es la ficha de {{ ficha.nombre }}</h1>
     <h2>Validada: 
       {% if ficha.validado %}
@@ -8,32 +9,38 @@
       <span class="notvalid">No</span>
       {% endif %}
     </h2>
-    <h2>Estadísticas</h2>
-    <ul>
-      <li><strong>Fuerza: </strong>{{ ficha.fuerza|add:ficha.raza.fuerza }}</li>
-      <li><strong>Destreza: </strong>{{ ficha.destreza|add:ficha.raza.destreza }}</li>
-      <li><strong>Constitución: </strong>{{ ficha.constitucion|add:ficha.raza.constitucion }}</li>
-      <li><strong>Inteligencia: </strong>{{ ficha.inteligencia|add:ficha.raza.inteligencia }}</li>
-      <li><strong>Sabiduría: </strong>{{ ficha.sabiduria|add:ficha.raza.sabiduria }}</li>
-      <li><strong>Carisma: </strong>{{ ficha.carisma|add:ficha.raza.carisma }}</li>
-    </ul>
-    <h3>Experiencia: {{ ficha.experiencia }} - Usada: {{ ficha.exp_gastada }}</h3>
-    <h2>Biografía</h2>
-    <h3>Raza: {{ ficha.raza.nombre }}</h3>
-    <ul>
-      <li><strong>Edad: </strong>{{ ficha.edad }}</li>
-      <li><strong>Sexo: </strong>{{ ficha.get_sexo_display }}</li>
-      <li><strong>Ojos: </strong>{{ ficha.ojos }}</li>
-      <li><strong>Pelo: </strong>{{ ficha.pelo }}</li>
-      <li><strong>Altura: </strong>{{ ficha.altura }}</li>
-      <li><strong>Peso: </strong>{{ ficha.peso }}</li>
-    </ul>
-    <h3>Físico</h3>
-    {{ ficha.fisico }}
-    <h3>Personalidad</h3>
-    {{ ficha.personalidad }}
-    <h3>Historia</h3>
-    {{ ficha.historia }}
+    <div class="stats">
+      <h2>Estadísticas</h2>
+      <ul>
+        <li><strong>Fuerza: </strong>{{ ficha.fuerza|add:ficha.raza.fuerza }}</li>
+        <li><strong>Destreza: </strong>{{ ficha.destreza|add:ficha.raza.destreza }}</li>
+        <li><strong>Constitución: </strong>{{ ficha.constitucion|add:ficha.raza.constitucion }}</li>
+        <li><strong>Inteligencia: </strong>{{ ficha.inteligencia|add:ficha.raza.inteligencia }}</li>
+        <li><strong>Sabiduría: </strong>{{ ficha.sabiduria|add:ficha.raza.sabiduria }}</li>
+        <li><strong>Carisma: </strong>{{ ficha.carisma|add:ficha.raza.carisma }}</li>
+      </ul>
+      <h3>Experiencia: {{ ficha.experiencia }} - Usada: {{ ficha.exp_gastada }}</h3>
+    </div>
+    <div class="looks">
+      <h2>Aspecto</h2>
+      <h3>Raza: {{ ficha.raza.nombre }}</h3>
+      <ul>
+        <li><strong>Edad: </strong>{{ ficha.edad }}</li>
+        <li><strong>Sexo: </strong>{{ ficha.get_sexo_display }}</li>
+        <li><strong>Ojos: </strong>{{ ficha.ojos }}</li>
+        <li><strong>Pelo: </strong>{{ ficha.pelo }}</li>
+        <li><strong>Altura: </strong>{{ ficha.altura }}</li>
+        <li><strong>Peso: </strong>{{ ficha.peso }}</li>
+      </ul>
+    </div>
+    <div class="bio">
+      <h3>Físico</h3>
+      {{ ficha.fisico }}
+      <h3>Personalidad</h3>
+      {{ ficha.personalidad }}
+      <h3>Historia</h3>
+      {{ ficha.historia }}
+    </div>
     <br />
     <br />
     {% if ficha.validado %}
@@ -41,5 +48,4 @@
     <br />
     {% endif %}
     <a href="{% url 'fichas:index' %}">Volver a listado de fichas</a>
-  </body>
-</html>
+{% endblock %}

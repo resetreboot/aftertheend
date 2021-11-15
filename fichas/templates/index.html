@@ -1,5 +1,6 @@
-<html>
-  <body>
+{% extends "base.html" %}
+{% block title %}After the End: Fichas de {{ request.user.username }}{% endblock %}
+{% block content %}
     <h1>Hola, {{ request.user.username }}. Éstas son tus fichas.</h1>
     <ul>
       {% if fichas %}
@@ -11,5 +12,4 @@
       {% endif %}
     </ul>
     <h2><a href="{% url 'fichas:new' %}">Crear una nueva ficha</a></h2>
-  </body>
-</html>
+{% endblock %}

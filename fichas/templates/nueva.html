@@ -1,5 +1,6 @@
-<html>
-  <body>
+{% extends "base.html" %}
+{% block title %}After the End: Nueva ficha{% endblock %}
+{% block content %}
     <h1>Nueva ficha para {{ request.user.username }}.</h1>
     <form action="{% url 'fichas:new' %}" method="post">
     {% csrf_token %}
@@ -8,5 +9,4 @@
     </table>
     <input type="submit" value="Enviar">
     </form>
-  </body>
-</html>
+{% endblock %}

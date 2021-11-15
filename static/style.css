@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans;
+  background-color: #ddd;
+}
+
+#contenedor {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 3em;
+  border: 0px solid #000;
+  background-color: #ffeecc;
+  border-radius: 2em;
+}
+
+form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+p.center {
+  width: 60%;
+  margin: 0 auto;
+}
+
+h1.center {
+  width: 60%;
+  margin: 0 auto;
+}
+
+div.stats {
+    float: left;
+    width: 45%;
+    margin-right: 2em;
+}
+
+div.looks {
+  float: right;
+  margin-left: 2em;
+  width: 45%;
+}
+
+div.bio {
+  clear: both;
+  width: 60%;
+  margin: 0 auto;
+}

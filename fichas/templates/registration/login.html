@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}After the End: Entrada de usuario{% endblock %}
+{% block content %}
+    {% if form.errors %}
+    <p class="center">Usuario o contraseñas no válidos, inténtelo de nuevo.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p class="center">Tu cuenta no tiene acceso a ésta página.</p>
+        {% else %}
+        <h1 class="center">Autenticación de usuario.</h1>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    </table>
+
+    <input type="submit" value="login">
+    <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p class="center"><a href="{% url 'password_reset' %}">¿Se te ha olvidado la contraseña?</a></p>
+{% endblock %}
