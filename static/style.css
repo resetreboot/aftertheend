@@ -3,6 +3,12 @@ body {
   background-color: #ddd;
 }
 
+#cabecera {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
 #contenedor {
   width: 1024px;
   margin: 0 auto;
@@ -10,6 +16,12 @@ body {
   border: 0px solid #000;
   background-color: #ffeecc;
   border-radius: 2em;
+}
+
+#pie {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 1em;
 }
 
 form {
@@ -20,6 +32,14 @@ form {
 p.center {
   width: 60%;
   margin: 0 auto;
+}
+
+.valid {
+  color: #0c0;
+}
+
+.notvalid {
+  color: #f00;
 }
 
 h1.center {

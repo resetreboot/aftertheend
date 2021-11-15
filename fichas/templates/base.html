@@ -6,9 +6,17 @@
     <title>{% block title %}After the End: Gestor de fichas{% endblock %}</title>
   </head>
   <body>
+    <div id="cabecera">
+      <h1>After the End</h1>
+    </div>
     <div id="contenedor">
     {% block content %}
     {% endblock %}
     </div>
+    {% block footer %}
+    <div id="pie">
+      <a href="{% url 'logout' %}">Salir</a>
+    </div>
+    {% endblock %}
   </body>
 </html>
