@@ -7,7 +7,6 @@ ENV PYTHONUNBUFFERED 1
 # Makes no PYC code generated
 ENV PYTHONDONTWRITEBYTECODE 1
 
-
 RUN useradd --create-home application -d /app
 # Generate and enter the app directory
 WORKDIR /app
@@ -26,6 +25,7 @@ ENV DJANGO_SETTINGS_MODULE "afterend.docker"
 ADD . /app 
 
 # Install dependencies
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
