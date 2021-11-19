@@ -5,11 +5,11 @@
     <ul>
       {% if fichas %}
         {% for ficha in fichas %}
-        <li>{{ ficha.nombre }} <a href="{% url 'fichas:ficha' ficha.id %}">Ver</a></li>
+        <li>{{ ficha.nombre }} <a class="see-link" href="{% url 'fichas:ficha' ficha.id %}">Ver</a></li>
         {% endfor %}
       {% else %}
         <li>No hay fichas</li>
       {% endif %}
     </ul>
-    <h2><a href="{% url 'fichas:new' %}">Crear una nueva ficha</a></h2>
+    <button class="add-ficha-button" onclick="window.location.href='{% url 'fichas:new' %}'"><span class="add-sign">&loplus;</span>Crear una nueva ficha</button>
 {% endblock %}

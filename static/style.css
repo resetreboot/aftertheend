@@ -3,6 +3,14 @@ body {
   background-color: #ddd;
 }
 
+ul li {
+  margin-bottom: 0;
+  border: 1px solid #000;
+  list-style: none;
+  position: relative;
+  padding: 1em 0 1em 1em;
+}
+
 #cabecera {
   width: 1024px;
   margin: 0 auto;
@@ -13,9 +21,10 @@ body {
   width: 1024px;
   margin: 0 auto;
   padding: 3em;
-  border: 0px solid #000;
+  border: 1px solid #ecb;
   background-color: #ffeecc;
-  border-radius: 2em;
+  border-radius: .2em;
+  box-shadow: 4px 4px 2px #999;
 }
 
 #pie {
@@ -63,4 +72,23 @@ div.bio {
   clear: both;
   width: 60%;
   margin: 0 auto;
+}
+
+.add-sign {
+  color: #0c0;
+  font-weight: bold;
+  font-size: large; 
+  margin-right: 1em;
+}
+
+.add-ficha-button {
+  padding: .2em;
+}
+
+a.see-link {
+  margin-left: 2em;
+  border: 1px solid #000;
+  background-color: #ccc;
+  border-radius: .2em;
+  padding: .5em;
 }

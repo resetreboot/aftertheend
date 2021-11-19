@@ -23,7 +23,6 @@
     </div>
     <div class="looks">
       <h2>Aspecto</h2>
-      <h3>Raza: {{ ficha.raza.nombre }}</h3>
       <ul>
         <li><strong>Edad: </strong>{{ ficha.edad }}</li>
         <li><strong>Sexo: </strong>{{ ficha.get_sexo_display }}</li>
@@ -32,6 +31,7 @@
         <li><strong>Altura: </strong>{{ ficha.altura }}</li>
         <li><strong>Peso: </strong>{{ ficha.peso }}</li>
       </ul>
+      <h3>Raza: {{ ficha.raza.nombre }}</h3>
     </div>
     <div class="bio">
       <h3>Físico</h3>
@@ -44,7 +44,7 @@
     <br />
     <br />
     {% if ficha.validado %}
-    <a href="{% url 'fichas:experiencia' ficha.id %}">Gastar experiencia</a>
+    <button onclick="window.location.href='{% url 'fichas:experiencia' ficha.id %}'">Gastar experiencia</button>
     <br />
     {% endif %}
     <a href="{% url 'fichas:index' %}">Volver a listado de fichas</a>
